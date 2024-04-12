@@ -6,7 +6,7 @@ const useStyle = (createStyles: any) => {
 
   const styles = useMemo(
     () => (createStyles ? createStyles(theme, isDarkMode) : {}),
-    [theme],
+    [createStyles, theme, isDarkMode],
   );
 
   return { styles, theme, isDarkMode };

@@ -1,5 +1,5 @@
 import type { ExtendedTheme } from "@react-navigation/native";
-import React, { ReactNode, createContext, useEffect, useState } from "react";
+import React, { ReactNode, createContext, useMemo } from "react";
 import type { ColorSchemeName } from "react-native";
 import { useColorScheme } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
@@ -9,14 +9,12 @@ import { DarkTheme, LightTheme } from "@theme/themes";
 
 interface ThemeContextProps {
   isDarkMode: boolean;
-  toggleDarkMode: (updateDarkMode: boolean) => void;
   changeScheme: (schemeName: ColorSchemeName) => void;
   theme: ExtendedTheme;
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
   isDarkMode: false,
-  toggleDarkMode: () => {},
   changeScheme: () => {},
   theme: LightTheme,
 });
@@ -30,10 +28,8 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     systemScheme,
   );
 
-  const [isDarkMode, setDarkMode] = useState(checkIsDarkMode(localScheme));
-
-  function checkIsDarkMode(schemeName: ColorSchemeName) {
-    switch (schemeName) {
+  const isDarkMode = useMemo(() => {
+    switch (localScheme) {
       case "dark":
         return true;
 
@@ -43,22 +39,13 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
       default:
         return systemScheme === "dark";
     }
-  }
-
-  const toggleDarkMode = (updateDarkMode: boolean) => {
-    setDarkMode(updateDarkMode);
-  };
-
-  useEffect(() => {
-    setDarkMode(checkIsDarkMode(localScheme));
-  }, [localScheme]);
+  }, [localScheme, systemScheme]);
 
   return (
     <ThemeContext.Provider
       value={{
         isDarkMode,
         theme: isDarkMode ? DarkTheme : LightTheme,
-        toggleDarkMode,
         changeScheme: setLocalScheme,
       }}
     >

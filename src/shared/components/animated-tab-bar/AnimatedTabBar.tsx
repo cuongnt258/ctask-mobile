@@ -3,7 +3,7 @@ import {
   BottomTabNavigationOptions,
 } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 import Icon, { IconType } from "react-native-dynamic-vector-icons";
 import Animated, {
   useAnimatedStyle,
@@ -104,7 +104,7 @@ const AnimatedTabBar = ({
   const { styles } = useStyle(createStyles);
 
   return (
-    <View style={[styles.tabBar, { marginBottom: bottom }]}>
+    <View style={[styles.tabBar, { marginBottom: bottom || 24 }]}>
       <View style={styles.tabBarContainer}>
         {routes.map((route, index) => {
           const isActive = index === activeIndex;
