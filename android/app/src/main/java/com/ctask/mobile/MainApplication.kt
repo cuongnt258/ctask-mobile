@@ -1,4 +1,4 @@
-package com.boilerplate.typescript
+package com.ctask.mobile
 
 import android.app.Application
 import com.facebook.react.PackageList
