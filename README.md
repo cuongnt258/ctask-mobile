@@ -199,4 +199,4 @@ FreakyCoder, kurayogun@gmail.com
 
 ## License
 
-React Native Typescript Boilerplate is available under the MIT license. See the LICENSE file for more info.
+React Native Typescript Boilerplate is available under the MIT license. See the LICENSE file for more info..
