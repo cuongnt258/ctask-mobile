@@ -12,6 +12,7 @@ import MessageScreen from "@screens/message/MessageScreen";
 import AnimatedTabBar from "@shared-components/animated-tab-bar/AnimatedTabBar";
 import { MAIN_SCREENS, NAVIGATION_SCREENS } from "@shared-constants";
 import { ThemeContext } from "contexts";
+import LoadingScreen from "@screens/loading/LoadingScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -53,10 +54,13 @@ const Navigation = () => {
     >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
+          name={NAVIGATION_SCREENS.LOADING}
+          component={LoadingScreen}
+        />
+        <Stack.Screen
           name={NAVIGATION_SCREENS.MAIN}
           component={MainNavigation}
         />
-        {/* <Stack.Screen name={NAVIGATION_SCREENS.DETAIL}>{(props) => <DetailScreen {...props} />}</Stack.Screen> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
