@@ -1,18 +1,20 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { View } from "react-native";
-import createStyles from "./ProfileScreen.style";
-import { useTheme } from "@react-navigation/native";
+
 import Text from "@shared-components/text-wrapper/TextWrapper";
+import useStyle from "hooks/useStyle";
+import createStyles from "./SettingScreen.style";
 
 const ProfileScreen: React.FC = () => {
-  const theme = useTheme();
-  const { colors } = theme;
-  const styles = useMemo(() => createStyles(theme), [theme]);
+  const {
+    styles,
+    theme: { colors },
+  } = useStyle(createStyles);
 
   return (
     <View style={styles.container}>
       <Text h1 color={colors.text}>
-        Profile
+        Setting
       </Text>
     </View>
   );

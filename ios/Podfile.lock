@@ -72,6 +72,9 @@ PODS:
     - hermes-engine/Pre-built (= 0.73.3)
   - hermes-engine/Pre-built (0.73.3)
   - libevent (2.1.12)
+  - MMKV (1.2.13):
+    - MMKVCore (~> 1.2.13)
+  - MMKVCore (1.2.16)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2022.05.16.00):
     - boost
@@ -944,6 +947,9 @@ PODS:
   - React-Mapbuffer (0.73.3):
     - glog
     - React-debug
+  - react-native-mmkv-storage (0.9.1):
+    - MMKV (= 1.2.13)
+    - React-Core
   - react-native-safe-area-context (4.8.2):
     - React-Core
   - react-native-splash-screen (3.3.0):
@@ -1192,6 +1198,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector-modern`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
+  - react-native-mmkv-storage (from `../node_modules/react-native-mmkv-storage`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
@@ -1235,6 +1242,8 @@ SPEC REPOS:
     - FlipperKit
     - fmt
     - libevent
+    - MMKV
+    - MMKVCore
     - OpenSSL-Universal
     - SocketRocket
 
@@ -1294,6 +1303,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   React-Mapbuffer:
     :path: "../node_modules/react-native/ReactCommon"
+  react-native-mmkv-storage:
+    :path: "../node_modules/react-native-mmkv-storage"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
@@ -1371,6 +1382,8 @@ SPEC CHECKSUMS:
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: 5420539d016f368cd27e008f65f777abd6098c56
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  MMKV: aac95d817a100479445633f2b3ed8961b4ac5043
+  MMKVCore: 9cfef4c48c6c46f66226fc2e4634d78490206a48
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: 9b898847f76977a6dfed2a08f4c5ed37add75ec0
@@ -1393,6 +1406,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 6fad0fe14882fb6b1c32e5cc8a4bd3d33a8b6790
   React-logger: cb0dd15ac67b00e7b771ef15203edcb29d4a3f8e
   React-Mapbuffer: d59258be3b0d2280c6ba8964ab6e36ec69211871
+  react-native-mmkv-storage: cfb6854594cfdc5f7383a9e464bb025417d1721c
   react-native-safe-area-context: 0ee144a6170530ccc37a0fd9388e28d06f516a89
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-nativeconfig: 4d3076dc3dc498ec49819e4e4225b55d3507f902
@@ -1424,6 +1438,6 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: ff0382b894475dba0b4d2a5fda860bfee5a9afad
 
-PODFILE CHECKSUM: d4a1bf9931be12cb79e5b79a122e9f73f7917ddb
+PODFILE CHECKSUM: 67e7e160742c1b9846d348e5c3c3755f44f31df5
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

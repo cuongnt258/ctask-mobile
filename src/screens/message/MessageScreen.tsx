@@ -3,9 +3,9 @@ import { View } from "react-native";
 
 import Text from "@shared-components/text-wrapper/TextWrapper";
 import useStyle from "hooks/useStyle";
-import createStyles from "./HomeScreen.style";
+import createStyles from "./MessageScreen.style";
 
-const HomeScreen: React.FC = () => {
+const MessageScreen: React.FC = () => {
   const {
     styles,
     theme: { colors },
@@ -14,10 +14,10 @@ const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text h1 color={colors.text}>
-        Home
+        Setting
       </Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default MessageScreen;

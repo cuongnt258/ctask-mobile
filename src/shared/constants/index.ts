@@ -1,8 +1,11 @@
 // ? Screens
-export const SCREENS = {
+export const NAVIGATION_SCREENS = {
+  MAIN: "Main",
+};
+
+export const MAIN_SCREENS = {
   HOME: "Home",
-  SEARCH: "Search",
+  MESSAGE: "Message",
   NOTIFICATION: "Notification",
-  PROFILE: "Profile",
-  DETAIL: "Detail",
+  SETTINGS: "Settings",
 };
