@@ -1,5 +1,5 @@
-// ? Screens
 export const NAVIGATION_SCREENS = {
+  LOADING: "Loading",
   MAIN: "Main",
 };
 
