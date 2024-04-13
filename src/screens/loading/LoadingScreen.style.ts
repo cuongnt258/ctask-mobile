@@ -3,7 +3,6 @@ import { ExtendedTheme } from "@react-navigation/native";
 
 interface Style {
   container: ViewStyle;
-  schemeButton: ViewStyle;
 }
 
 export default (theme: ExtendedTheme) => {
@@ -14,13 +13,6 @@ export default (theme: ExtendedTheme) => {
       backgroundColor: colors.background,
       alignItems: "center",
       justifyContent: "center",
-    },
-    schemeButton: {
-      padding: 8,
-      marginTop: 8,
-      backgroundColor: colors.primary,
-      paddingHorizontal: 15,
-      minWidth: 100,
     },
   });
 };
