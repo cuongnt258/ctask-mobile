@@ -1,5 +1,6 @@
 export const NAVIGATION_SCREENS = {
   LOADING: "Loading",
+  ONBOARDING: "Onboarding",
   MAIN: "Main",
 };
 
