@@ -10,10 +10,11 @@ import Text from "@shared-components/text/Text";
 
 import { Onboarding } from "assets/svg";
 import createStyles from "./OnboardingScreen.style";
-import { NAVIGATION_SCREENS } from "@shared-constants";
+import { AUTH_SCREENS, NAVIGATION_SCREENS } from "@shared-constants";
 import ChevronRight from "assets/svg/ChevronRight";
 import Slider from "./components/Slider";
 import { translations } from "shared/localization";
+import { HaveAnAccount } from "@shared-components/auth";
 
 const OnboardingScreen: React.FC<any> = ({ navigation }) => {
   const {
@@ -25,11 +26,15 @@ const OnboardingScreen: React.FC<any> = ({ navigation }) => {
   const [step, setStep] = useState(1);
 
   const onPressGetStarted = () => {
-    // Navigate to signup
+    navigation.replace(NAVIGATION_SCREENS.AUTH, {
+      screen: AUTH_SCREENS.SIGN_UP,
+    });
   };
 
   const onPressLogin = () => {
-    // Navigate to login
+    navigation.replace(NAVIGATION_SCREENS.AUTH, {
+      screen: AUTH_SCREENS.SIGN_IN,
+    });
   };
 
   const onPressNext = () => {
@@ -116,21 +121,7 @@ const OnboardingScreen: React.FC<any> = ({ navigation }) => {
 
   const renderFooter = () => {
     if (step === 3) {
-      return (
-        <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <Text h2 color={colors.neutral.neutral2}>
-            {translations.alreadyHaveAnAccount}
-          </Text>
-          <TextButton
-            h2
-            color={colors.secondary}
-            style={{ marginLeft: 8 }}
-            onPress={onPressLogin}
-          >
-            {translations.login}
-          </TextButton>
-        </View>
-      );
+      return <HaveAnAccount onPressLogin={onPressLogin} />;
     }
 
     return (

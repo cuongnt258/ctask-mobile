@@ -3,6 +3,7 @@ import { StyleSheet, ViewStyle } from "react-native";
 
 interface Style {
   container: ViewStyle;
+  content: ViewStyle;
 }
 
 export default (theme: ExtendedTheme, isDarkMode: boolean) => {
@@ -14,6 +15,9 @@ export default (theme: ExtendedTheme, isDarkMode: boolean) => {
       backgroundColor: isDarkMode
         ? colors.neutral.neutral1
         : colors.neutral.neutral4,
+    },
+    content: {
+      flex: 1,
     },
   });
 };
