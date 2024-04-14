@@ -10,17 +10,12 @@ export default (theme: ExtendedTheme) => {
 
   return StyleSheet.create<Style>({
     container: {
-      backgroundColor: colors.primary,
-      height: 48,
-      paddingHorizontal: 12,
+      width: 60,
+      height: 60,
       justifyContent: "center",
       alignItems: "center",
       borderRadius: 16,
-    },
-    content: {
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "row",
+      backgroundColor: colors.neutral.neutral3,
     },
   });
 };

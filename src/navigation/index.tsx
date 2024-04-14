@@ -4,10 +4,13 @@ import React, { useContext } from "react";
 import { isReadyRef, navigationRef } from "react-navigation-helpers";
 
 import LoadingScreen from "@screens/loading/LoadingScreen";
-import { NAVIGATION_SCREENS } from "@shared-constants";
-import { ThemeContext } from "contexts";
-import MainNavigation from "./MainNavigation";
 import OnboardingScreen from "@screens/onboarding/OnboardingScreen";
+import AuthNavigation from "./AuthNavigation";
+import MainNavigation from "./MainNavigation";
+
+import { ThemeContext } from "contexts";
+
+import { NAVIGATION_SCREENS } from "@shared-constants";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +37,10 @@ const Navigation = () => {
         <Stack.Screen
           name={NAVIGATION_SCREENS.ONBOARDING}
           component={OnboardingScreen}
+        />
+        <Stack.Screen
+          name={NAVIGATION_SCREENS.AUTH}
+          component={AuthNavigation}
         />
         <Stack.Screen
           name={NAVIGATION_SCREENS.MAIN}

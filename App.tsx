@@ -9,6 +9,7 @@ import SplashScreen from "react-native-splash-screen";
 import Navigation from "./src/navigation";
 import { isAndroid } from "@freakycoder/react-native-helpers";
 import { ThemeProvider } from "contexts/theme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 LogBox.ignoreAllLogs();
 
@@ -29,9 +30,11 @@ const App = () => {
   }, [scheme, isDarkMode]);
 
   return (
-    <ThemeProvider>
-      <Navigation />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <Navigation />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 };
 

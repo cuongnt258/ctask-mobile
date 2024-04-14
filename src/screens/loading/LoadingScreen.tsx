@@ -21,7 +21,7 @@ const LoadingScreen: React.FC<any> = ({ navigation }) => {
   const checkFirstOpen = () => {
     if (isFirstOpen) return navigation.replace(NAVIGATION_SCREENS.ONBOARDING);
 
-    navigation.replace(NAVIGATION_SCREENS.MAIN);
+    navigation.replace(NAVIGATION_SCREENS.AUTH);
   };
 
   useEffect(() => {
