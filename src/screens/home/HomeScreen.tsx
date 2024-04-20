@@ -1,8 +1,10 @@
 import React from "react";
-import { View } from "react-native";
 
-import Text from "@shared-components/text-wrapper/TextWrapper";
 import useStyle from "hooks/useStyle";
+
+import AppContainer from "@shared-components/appContainer/AppContainer";
+import Text from "@shared-components/text-wrapper/TextWrapper";
+
 import createStyles from "./HomeScreen.style";
 
 const HomeScreen: React.FC = () => {
@@ -12,11 +14,11 @@ const HomeScreen: React.FC = () => {
   } = useStyle(createStyles);
 
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Text h1 color={colors.text}>
         Home
       </Text>
-    </View>
+    </AppContainer>
   );
 };
 

@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { ColorSchemeName, TouchableOpacity, View } from "react-native";
+import { ColorSchemeName, TouchableOpacity } from "react-native";
 
-import Text from "@shared-components/text-wrapper/TextWrapper";
-import useStyle from "hooks/useStyle";
-import createStyles from "./SettingScreen.style";
 import { ThemeContext } from "contexts";
+import useStyle from "hooks/useStyle";
+
+import AppContainer from "@shared-components/appContainer/AppContainer";
+import Text from "@shared-components/text-wrapper/TextWrapper";
+
+import createStyles from "./SettingScreen.style";
 
 const ProfileScreen: React.FC = () => {
   const {
@@ -33,12 +36,12 @@ const ProfileScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Text h1 color={colors.text}>
         Setting
       </Text>
       {["system", "dark", "light"].map((e: any) => renderSchemeOption(e))}
-    </View>
+    </AppContainer>
   );
 };
 

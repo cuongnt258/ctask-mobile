@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 
-import { NAVIGATION_SCREENS } from "@shared-constants";
-import useStyle from "hooks/useStyle";
 import LocalStorage from "@services/storage";
+import useStyle from "hooks/useStyle";
 
-import createStyles from "./LoadingScreen.style";
+import AppContainer from "@shared-components/appContainer/AppContainer";
+
 import { Logo } from "assets/svg";
+import createStyles from "./LoadingScreen.style";
+import { NAVIGATION_SCREENS } from "@shared-constants";
 
 const LoadingScreen: React.FC<any> = ({ navigation }) => {
   const { styles } = useStyle(createStyles);
@@ -20,7 +21,6 @@ const LoadingScreen: React.FC<any> = ({ navigation }) => {
 
   const checkFirstOpen = () => {
     if (isFirstOpen) return navigation.replace(NAVIGATION_SCREENS.ONBOARDING);
-
     navigation.replace(NAVIGATION_SCREENS.AUTH);
   };
 
@@ -30,9 +30,9 @@ const LoadingScreen: React.FC<any> = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Logo />
-    </View>
+    </AppContainer>
   );
 };
 

@@ -1,11 +1,12 @@
 import type { ExtendedTheme } from "@react-navigation/native";
-import React, { ReactNode, createContext, useMemo } from "react";
+import React, { ReactNode, createContext, useEffect, useMemo } from "react";
 import type { ColorSchemeName } from "react-native";
-import { useColorScheme } from "react-native";
+import { StatusBar, useColorScheme } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 
 import LocalStorage from "@services/storage";
 import { DarkTheme, LightTheme } from "@theme/themes";
+import { isAndroid } from "@freakycoder/react-native-helpers";
 
 interface ThemeContextProps {
   isDarkMode: boolean;
@@ -40,6 +41,15 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
         return systemScheme === "dark";
     }
   }, [localScheme, systemScheme]);
+
+  useEffect(() => {
+    StatusBar.setBarStyle(isDarkMode ? "light-content" : "dark-content");
+
+    if (isAndroid) {
+      StatusBar.setBackgroundColor("rgba(0,0,0,0)");
+      StatusBar.setTranslucent(true);
+    }
+  }, [isDarkMode]);
 
   return (
     <ThemeContext.Provider

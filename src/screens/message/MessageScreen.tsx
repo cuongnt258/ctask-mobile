@@ -1,8 +1,9 @@
 import React from "react";
-import { View } from "react-native";
 
-import Text from "@shared-components/text-wrapper/TextWrapper";
 import useStyle from "hooks/useStyle";
+import Text from "@shared-components/text-wrapper/TextWrapper";
+import AppContainer from "@shared-components/appContainer/AppContainer";
+
 import createStyles from "./MessageScreen.style";
 
 const MessageScreen: React.FC = () => {
@@ -12,11 +13,11 @@ const MessageScreen: React.FC = () => {
   } = useStyle(createStyles);
 
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Text h1 color={colors.text}>
-        Setting
+        Message
       </Text>
-    </View>
+    </AppContainer>
   );
 };
 

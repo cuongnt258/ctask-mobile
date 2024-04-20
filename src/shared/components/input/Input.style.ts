@@ -7,7 +7,7 @@ interface Style {
 }
 
 export default (theme: ExtendedTheme, isDarkMode: boolean) => {
-  const { colors } = theme || {};
+  const { colors, styles } = theme || {};
 
   return StyleSheet.create<Style>({
     container: {

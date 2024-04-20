@@ -11,7 +11,7 @@ interface Style {
 }
 
 export default (theme: ExtendedTheme, isDarkMode: boolean) => {
-  const { colors } = theme || {};
+  const { colors, styles } = theme || {};
 
   return StyleSheet.create<Style>({
     tabBar: {
@@ -22,6 +22,7 @@ export default (theme: ExtendedTheme, isDarkMode: boolean) => {
       left: 16,
       right: 16,
       height: 64,
+      ...styles.shadow,
     },
     tabBarContainer: {
       flexDirection: "row",

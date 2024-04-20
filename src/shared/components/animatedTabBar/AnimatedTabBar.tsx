@@ -4,7 +4,6 @@ import {
 } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Pressable, View } from "react-native";
-import Icon, { IconType } from "react-native-dynamic-vector-icons";
 import Animated, {
   useAnimatedStyle,
   withTiming,
@@ -14,6 +13,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import useStyle from "hooks/useStyle";
 import createStyles from "./AnimatedTabBar.styles";
 import { MAIN_SCREENS } from "@shared-constants";
+import { Chat, Home, Notification, Setting } from "assets/svg/navigation";
 
 type TabBarComponentProps = {
   isActive?: boolean;
@@ -37,44 +37,23 @@ const TabBarComponent = ({
     };
   });
 
-  const renderTabBarIcon = (
-    route: any,
-    focused: boolean,
-    color: string,
-    size: number,
-  ) => {
-    let iconName = focused ? "home" : "home-outline";
-
+  const renderTabBarIcon = (route: any, color: string) => {
     switch (route.name) {
       case MAIN_SCREENS.HOME:
-        iconName = focused ? "home" : "home-outline";
-        break;
+        return <Home color={color} />;
 
       case MAIN_SCREENS.MESSAGE:
-        iconName = focused ? "chatbox-ellipses" : "chatbox-ellipses-outline";
-        break;
+        return <Chat color={color} />;
 
       case MAIN_SCREENS.NOTIFICATION:
-        iconName = focused ? "notifications" : "notifications-outline";
-        break;
+        return <Notification color={color} />;
 
       case MAIN_SCREENS.SETTINGS:
-        iconName = focused ? "settings" : "settings-outline";
-        break;
+        return <Setting color={color} />;
 
       default:
-        iconName = focused ? "home" : "home-outline";
-        break;
+        return <Home color={color} />;
     }
-
-    return (
-      <Icon
-        name={iconName}
-        type={IconType.Ionicons}
-        size={size}
-        color={color}
-      />
-    );
   };
 
   return (
@@ -84,9 +63,7 @@ const TabBarComponent = ({
       >
         {renderTabBarIcon(
           route,
-          isActive,
           isActive ? activeBottomTabIconColor : inActiveBottomTabIconColor,
-          24,
         )}
         {isActive && <View style={styles.activeDot} />}
       </Animated.View>
