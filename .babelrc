@@ -12,46 +12,40 @@
 				],
 				"alias": [
 					{
-						"@shared-components": "./src/shared/components"
+						"@assets": "./src/assets/"
 					},
 					{
-						"@shared-constants": "./src/shared/constants"
+						"@components": "./src/components"
 					},
 					{
-						"@font-size": "./src/shared/theme/font-size"
+						"@constants": "./src/constants"
 					},
 					{
-						"@api": "./src/services/api/index"
+						"@contexts": "./src/contexts"
 					},
 					{
-						"@fonts": "./src/shared/theme/fonts"
+						"@api": "./src/constants/api"
 					},
 					{
-						"@colors": "./src/shared/theme/colors"
+						"@context": "./src/context"
 					},
 					{
-						"@theme": "./src/shared/theme"
+						"@hooks": "./src/hooks"
 					},
 					{
-						"@models": "./src/services/models"
-					},
-					{
-						"@services": "./src/services"
+						"@navigators": "./src/navigators"
 					},
 					{
 						"@screens": "./src/screens"
 					},
 					{
+						"@services": "./src/services"
+					},
+					{
+						"@types": "./src/types"
+					},
+					{
 						"@utils": "./src/utils/"
-					},
-					{
-						"@assets": "./src/assets/"
-					},
-					{
-						"@event-emitter": "./src/services/event-emitter"
-					},
-					{
-						"@local-storage": "./src/services/local-storage"
 					}
 				],
 				"extensions": [

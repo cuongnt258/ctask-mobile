@@ -1,31 +1,14 @@
 import React from "react";
-import { LogBox } from "react-native";
-import "react-native-gesture-handler";
-import SplashScreen from "react-native-splash-screen";
+import ThemeProvider from "@contexts/themeContext";
+import NavigationContainer from "@navigators/NavigationContainer";
+import RootNavigator from "@navigators/RootNavigator";
 
-/**
- * ? Local Imports
- */
-import Navigation from "./src/navigation";
-import { ThemeProvider } from "contexts/theme";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
-LogBox.ignoreAllLogs();
-
-const App = () => {
-  React.useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 750);
-  }, []);
-
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <Navigation />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <ThemeProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </ThemeProvider>
   );
-};
-
-export default App;
+}
