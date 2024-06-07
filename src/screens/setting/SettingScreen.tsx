@@ -1,8 +1,12 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useContext } from "react";
+import { ColorSchemeName, TouchableOpacity } from "react-native";
 
-import Text from "@shared-components/text-wrapper/TextWrapper";
+import { ThemeContext } from "contexts";
 import useStyle from "hooks/useStyle";
+
+import AppContainer from "@shared-components/appContainer/AppContainer";
+import Text from "@shared-components/text-wrapper/TextWrapper";
+
 import createStyles from "./SettingScreen.style";
 
 const ProfileScreen: React.FC = () => {
@@ -11,12 +15,33 @@ const ProfileScreen: React.FC = () => {
     theme: { colors },
   } = useStyle(createStyles);
 
+  const { changeScheme } = useContext(ThemeContext);
+
+  const renderSchemeOption = (schemeName: ColorSchemeName) => {
+    const onPress = () => {
+      changeScheme(schemeName);
+    };
+
+    return (
+      <TouchableOpacity
+        key={schemeName}
+        style={styles.schemeButton}
+        onPress={onPress}
+      >
+        <Text color={colors.white} center>
+          {schemeName}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Text h1 color={colors.text}>
         Setting
       </Text>
-    </View>
+      {["system", "dark", "light"].map((e: any) => renderSchemeOption(e))}
+    </AppContainer>
   );
 };
 

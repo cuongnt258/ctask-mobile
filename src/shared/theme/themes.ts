@@ -1,5 +1,7 @@
 import type { ExtendedTheme } from "@react-navigation/native";
 import { DefaultTheme } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import { isIOS } from "utils/deviceUtils";
 
 export const colors = {
   primary: "#643FDB",
@@ -27,6 +29,19 @@ export const colors = {
   },
 };
 
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: isIOS ? "rgba(0, 0, 0, 0.1)" : "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 16,
+    shadowOpacity: 1,
+    elevation: 2,
+  },
+});
+
 export const LightTheme: ExtendedTheme = {
   dark: false,
   colors: {
@@ -36,6 +51,7 @@ export const LightTheme: ExtendedTheme = {
     inActiveBottomTabIconColor: colors.neutral.neutral2,
     activeBottomTabIconColor: colors.primary,
   },
+  styles,
 };
 
 export const DarkTheme: ExtendedTheme = {
@@ -44,5 +60,8 @@ export const DarkTheme: ExtendedTheme = {
     ...LightTheme.colors,
     bottomTabBackground: colors.primary,
     activeBottomTabIconColor: colors.white,
+  },
+  styles: {
+    ...LightTheme.styles,
   },
 };

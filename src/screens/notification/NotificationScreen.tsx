@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
-import { View } from "react-native";
-import createStyles from "./NotificationScreen.style";
 import { useTheme } from "@react-navigation/native";
+
+import AppContainer from "@shared-components/appContainer/AppContainer";
 import Text from "@shared-components/text-wrapper/TextWrapper";
+
+import createStyles from "./NotificationScreen.style";
 
 const ProfileScreen: React.FC = () => {
   const theme = useTheme();
@@ -10,11 +12,11 @@ const ProfileScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(theme), [theme]);
 
   return (
-    <View style={styles.container}>
+    <AppContainer contentStyle={styles.container}>
       <Text h1 color={colors.text}>
         Notification
       </Text>
-    </View>
+    </AppContainer>
   );
 };
 

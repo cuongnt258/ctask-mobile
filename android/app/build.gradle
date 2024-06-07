@@ -75,9 +75,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.boilerplate.typescript"
+    namespace "com.ctask.mobile"
     defaultConfig {
-        applicationId "com.boilerplate.typescript"
+        applicationId "com.ctask.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

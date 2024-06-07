@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import fonts from "@fonts";
 import RNText from "@freakycoder/react-native-custom-text";
 import type { IRNTextProps } from "@freakycoder/react-native-custom-text";
+import { ThemeContext } from "contexts";
 
 interface ITextWrapperProps extends IRNTextProps {
   color?: string;
@@ -10,13 +11,22 @@ interface ITextWrapperProps extends IRNTextProps {
 }
 
 const TextWrapper: React.FC<ITextWrapperProps> = ({
-  fontFamily = fonts.montserrat.regular,
-  color = "#757575",
+  fontFamily = fonts.sfPro.regular,
+  color,
   children,
   ...rest
 }) => {
+  const {
+    isDarkMode,
+    theme: { colors },
+  } = useContext(ThemeContext);
+
   return (
-    <RNText fontFamily={fontFamily} color={color} {...rest}>
+    <RNText
+      fontFamily={fontFamily}
+      color={color || isDarkMode ? colors.white : colors.black}
+      {...rest}
+    >
       {children}
     </RNText>
   );
